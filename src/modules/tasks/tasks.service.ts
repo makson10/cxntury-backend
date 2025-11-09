@@ -4,10 +4,10 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { Task } from '@/common/entities/task.entity';
-import { TaskOption } from '@/common/entities/task-option.entity';
-import { TaskAnswer } from '@/common/entities/task-answer.entity';
-import { Session } from '@/common/entities/session.entity';
+import { Task } from '@/common/database/entities/task.entity';
+import { TaskOption } from '@/common/database/entities/task-option.entity';
+import { TaskAnswer } from '@/common/database/entities/task-answer.entity';
+import { Session } from '@/common/database/entities/session.entity';
 
 @Injectable()
 export class TasksService {

@@ -4,12 +4,6 @@ import { SessionModule } from './modules/session/session.module';
 import { TasksModule } from './modules/tasks/tasks.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    SessionModule,
-    TasksModule,
-  ],
+  imports: [ConfigModule.forRoot(), SessionModule, TasksModule],
 })
 export class AppModule {}

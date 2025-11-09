@@ -29,7 +29,7 @@ export class TasksController {
       throw new UnauthorizedException('Bearer token required');
     }
 
-    const token = authorization.substring(7);
+    const token = authorization.replace('Bearer ', '');
     return this.tasksService.submitAnswer(
       parseInt(taskId, 10),
       submitAnswerDto.optionId,

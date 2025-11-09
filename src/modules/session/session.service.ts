@@ -1,20 +1,20 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Session } from '@/common/entities/session.entity';
+import { Session } from '@/common/database/entities/session.entity';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class SessionService {
   constructor(
     @Inject('SESSION_REPOSITORY')
-    private sessionModel: typeof Session,
+    private sessionRepository: typeof Session,
   ) {}
 
   async createSession(): Promise<Session> {
     const token = uuidv4();
-    return this.sessionModel.create({ token });
+    return this.sessionRepository.create({ token });
   }
 
   async findByToken(token: string): Promise<Session | null> {
-    return this.sessionModel.findOne({ where: { token } });
+    return this.sessionRepository.findOne({ where: { token } });
   }
 }
